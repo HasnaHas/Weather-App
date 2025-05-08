@@ -1,0 +1,174 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    background: linear-gradient(to right,#87c9ff, #254f89, #2196F3);
+}
+
+.container {
+    text-align: center;
+}
+
+.weather-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    max-width: 450px;
+}
+
+.weather-card:hover {
+    transform: scale(1.05);
+}
+
+#city-input {
+    padding: 15px;
+    margin: 10px 0;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#city-input:focus {
+    outline: none;
+    border-color:#254f89;
+}
+
+#city-input::placeholder {
+    color: #aaa;
+}
+
+#city-input-btn {
+    padding: 10px;
+    background-color: #2196F3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#city-input-btn:hover {
+    background-color: #1565C0;
+}
+
+#weather-info {
+    display: none;
+}
+
+#weather-icon {
+    width: auto;
+    height: auto;
+}
+
+
+#temperature {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+#description {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+.animate__clear {
+    animation: clear 1s ease-in-out;
+}
+
+.animate__rain {
+    animation: rain 1s ease-in-out;
+}
+
+.animate__clouds {
+    animation: clouds 1s ease-in-out;
+}
+
+
+.weather-icon-animate {
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.sunny {
+    animation: glow 2s ease-in-out infinite;
+}
+
+
+.rainy {
+    position: relative;
+    animation: rain 2s infinite linear;
+}
+
+
+.cloudy {
+    animation: moveClouds 10s linear infinite;
+}
+
+.windy {
+    animation: swirl 2s infinite linear;
+}
+
+.snowy {
+    animation: snowfall 5s linear infinite;
+}
+
+
+.thunderstorm {
+    animation: lightning 1s infinite;
+}
+
+
+@keyframes glow {
+    0% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.1); filter: brightness(1.5); }
+    100% { transform: scale(1); filter: brightness(1); }
+}
+
+@keyframes rain {
+    0% { top: -100px; opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+
+@keyframes moveClouds {
+    0% { left: -50%; }
+    100% { left: 100%; }
+}
+
+
+@keyframes swirl {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+@keyframes snowfall {
+    0% { top: -10%; opacity: 1; }
+    100% { top: 100%; opacity: 0.3; }
+}
+
+@keyframes lightning {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.rainy:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    animation: rain 2s infinite linear;
+}
